@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  public Place = {
+    name :"friouato",
+    user : "By hind charb",
+    photo : "assets/Images/img2.jpg"
+      
+  }
   constructor() {}
 
 }

@@ -1,0 +1,52 @@
+<ion-content>
+
+  <div class="padding">
+
+    <div class="logo">
+      <img class="title-image" src="assets/logoColor.svg" width="200dp" height="200dp" />
+    </div>
+
+
+  <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+    <ion-item>
+        <ion-input type="text" name="UserName" ngModel placeholder="User Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" name="password" ngModel placeholder="Password"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-button color="#7D96D6" slot="end" fill="clear">Mot de passe oublié ?</ion-button>
+    </ion-item>
+    <br>
+    <ion-button color="primary" type="submit" expand="block" shape="round" fill="outline">Connexion</ion-button>
+    <br>
+    <ion-button color="secondary" expand="block" shape="round">Inscription</ion-button>
+
+    <ion-item lines="none">
+      <ion-label color="darck" text-center>Ou connectez-vous avec</ion-label>
+    </ion-item>
+
+  </form>
+  <div class="flex">
+    <ion-button color="facebook" shape="round">
+      <ion-icon slot="start" name="logo-facebook"></ion-icon>
+      Facebook
+    </ion-button>
+    <ion-button color="google" shape="round">
+      <ion-icon slot="start" name="logo-google"></ion-icon>
+      Google
+    </ion-button>
+  </div>
+</div>
+
+
+
+
+
+ 
+
+
+</ion-content>
+

@@ -1,0 +1,23 @@
+ion-content{
+   // --ion-background-color:#7D96D6;
+   //--ion-background-color:linear-gradient(blue,red);
+
+}
+ion-item{
+    background-color: aqua;
+}
+.padding{
+    padding : 10%
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+.logo{
+    display: flex;
+    padding : 10%;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+}
