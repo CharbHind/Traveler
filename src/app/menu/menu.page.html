@@ -1,9 +1,46 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>menu</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-menu side="start" menuId="main-menu" contentId='main'>
+  <ion-content>
+    <div class="menu-header-bg"></div>
+    <div class="header-content">
+        <img src="../assets/profil/avatar.jpg" alt="">
+        <ion-label>
+            <h2>Mr toto</h2>
+            <p>exemple@email.com</p>
+        </ion-label>
+    </div>
+    <div class="action-button">
+        <ion-button><ion-icon slot="start" name="add"></ion-icon>add suggestion</ion-button>
+    </div>
 
-<ion-content>
+    <ion-list class="menu-items" lines="none">
+        <ion-item>
+          <ion-icon name="pie-chart-outline"></ion-icon>
+          Dashboard
+        </ion-item>
+        <ion-item class="active">
+          <ion-icon name="pie-chart-outline"></ion-icon>
+          Dashboard
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pie-chart-outline"></ion-icon>
+          Dashboard
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pie-chart-outline"></ion-icon>
+          Dashboard
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pie-chart-outline"></ion-icon>
+          Dashboard
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pie-chart-outline"></ion-icon>
+          Sign Out
+        </ion-item>
+    </ion-list>
 
-</ion-content>
+
+
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
