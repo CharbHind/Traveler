@@ -1,27 +1,375 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-    <ion-buttons slot="start">
-        <ion-menu-button menu="main-menu">
-
-        </ion-menu-button>
+<ion-header class="ion-no-border">
+	<ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
     </ion-buttons>
-  </ion-toolbar>
+	</ion-toolbar>
 </ion-header>
 
+
+
 <ion-content [fullscreen]="true">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>CCCC </ion-card-title>
-      </ion-card-header>
-      <ion-list>
-          <ion-item><strong>{{Place.name}}</strong></ion-item>
-          <ion-item>{{Place.user}}</ion-item>
-      </ion-list>
-      <ion-card-content>
-          <ion-img [src]="Place.photo"></ion-img>
-      </ion-card-content>
-    </ion-card>
+  
+<div class="ion-padding wrapper">
+  <ion-searchbar></ion-searchbar>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col>
+        <ion-slides [options]="categories">
+
+          <ion-slide >
+            <ion-card class="category" color="danger"  >
+              <ion-card-header class="ion-text-center">
+                <ion-icon class="Cat-icon" src="assets/icon/cars.svg"></ion-icon>
+                <ion-card-title >Cars</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-slide>
+          
+          <ion-slide>
+            <ion-card class="category" color="primary">
+              <ion-card-header class="ion-text-center">
+                <ion-icon class="Cat-icon" src="assets/icon/resto.svg"></ion-icon>
+                <ion-card-title>Restorants</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="category" color="warning">
+              <ion-card-header class="ion-text-center">
+                <ion-icon class="Cat-icon" src="assets/icon/activity.svg"></ion-icon>
+                <ion-card-title>Activities</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="category" color="success">
+              <ion-card-header class="ion-text-center">
+                <ion-icon class="Cat-icon" src="assets/icon/hotel.svg"></ion-icon>
+                <ion-card-title>Hotels</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-slide>       
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-align-items-baseline">
+      <ion-col size="6">
+        <h4 class="title">
+          Popular Places
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4 class="more ion-text-end">
+          View more
+        </h4>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  </div>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12">
+        <ion-slides [options]="options">
+
+          <ion-slide *ngFor="let sugg of place">
+            <ion-card class="card" type="button" (click)="music()">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img src="{{sugg.photo}}"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">{{sugg.titre}}</ion-card-title>
+                <ion-card-subtitle>{{sugg.description}}</ion-card-subtitle>
+                <ion-card-subtitle>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                </ion-card-subtitle>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+<!--
+          <ion-slide>
+            <ion-card class="card">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img src="assets/Images/img2.jpg"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">Some Awesome Dish Title</ion-card-title>
+                <ion-card-subtitle>Some description here</ion-card-subtitle>
+                <ion-card-subtitle>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-half"></ion-icon>
+                </ion-card-subtitle>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="card">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img src="https://images.pexels.com/photos/1291712/pexels-photo-1291712.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">Some Awesome Dish Title</ion-card-title>
+                <ion-card-subtitle>Some description here</ion-card-subtitle>
+                <ion-card-subtitle>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </ion-card-subtitle>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="card">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">Some Awesome Dish Title</ion-card-title>
+                <ion-card-subtitle>Some description here</ion-card-subtitle>
+                <ion-card-subtitle>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                </ion-card-subtitle>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="card">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">Some Awesome Dish Title</ion-card-title>
+                <ion-card-subtitle>Some description here</ion-card-subtitle>
+                <ion-card-subtitle>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                </ion-card-subtitle>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+
+          
+
+          <ion-slide>
+            <ion-card class="card">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img src="https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">Some Awesome Dish Title</ion-card-title>
+                <ion-card-subtitle>Some description here</ion-card-subtitle>
+                <ion-card-subtitle>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                  <ion-icon name="star-outline"></ion-icon>
+                </ion-card-subtitle>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+            -->
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!--<div class="ion-padding-horizontal wrapper">
+  
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-align-items-baseline">
+        <ion-col size="6">
+          <h4 class="title">
+            Explore Categories
+          </h4>
+        </ion-col>
+        <ion-col size="6">
+          <h4 class="more ion-text-end">
+            Show more
+          </h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    </div>-->
+  
+   
+
+
+
+    <div class="ion-padding-horizontal wrapper">
+    
+      <ion-grid class="ion-no-padding">
+        <ion-row class="ion-align-items-baseline">
+          <ion-col size="6">
+            <h4 class="title">
+              Recommended Places 
+            </h4>
+          </ion-col>
+          <ion-col size="6">
+            <h4 class="more ion-text-end">
+              Show more
+            </h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+      </div>
+    
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="12">
+            <ion-slides [options]="options">
+    
+              <ion-slide *ngFor="let sugg of place">
+                <ion-card class="card" type="button" (click)="music()">
+                  <ion-card-content class="ion-text-left">
+    
+                    <div class="img-wrapper">
+                      <ion-img src="{{sugg.photo}}"></ion-img>
+                    </div>
+                    
+                    <ion-card-title class="title">{{sugg.titre}}</ion-card-title>
+                    <ion-card-subtitle>{{sugg.description}}</ion-card-subtitle>
+                    <ion-card-subtitle>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </ion-card-subtitle>
+                  </ion-card-content>
+                </ion-card>
+              </ion-slide>
+    <!--
+              <ion-slide>
+                <ion-card class="card">
+                  <ion-card-content class="ion-text-left">
+    
+                    <div class="img-wrapper">
+                      <ion-img src="https://images.pexels.com/photos/616840/pexels-photo-616840.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"></ion-img>
+                    </div>
+                    
+                    <ion-card-title class="title">Some Awesome Title</ion-card-title>
+                    <ion-card-subtitle>Some description here</ion-card-subtitle>
+                    <ion-card-subtitle>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </ion-card-subtitle>
+                  </ion-card-content>
+                </ion-card>
+              </ion-slide>
+    
+              <ion-slide>
+                <ion-card class="card">
+                  <ion-card-content class="ion-text-left">
+    
+                    <div class="img-wrapper">
+                      <ion-img src="https://images.pexels.com/photos/1437629/pexels-photo-1437629.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"></ion-img>
+                    </div>
+                    
+                    <ion-card-title class="title">Some Awesome Title</ion-card-title>
+                    <ion-card-subtitle>Some description here</ion-card-subtitle>
+                    <ion-card-subtitle>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-half"></ion-icon>
+                    </ion-card-subtitle>
+                  </ion-card-content>
+                </ion-card>
+              </ion-slide>
+            -->
+    
+            </ion-slides>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 </ion-content>
+
+
+<ion-tab-bar color="light" slot="bottom">
+  <ion-tab-button tab="home" >
+    <ion-icon src="assets/icon/nav-selected.svg"></ion-icon>
+</ion-tab-button>
+<ion-tab-button tab="profile" >
+  <ion-icon src="assets/icon/profile.svg"></ion-icon>
+</ion-tab-button>
+<ion-tab-button tab="favori">
+<ion-icon src="assets/icon/favori.svg"></ion-icon>
+</ion-tab-button>
+<ion-tab-button tab="weather">
+<ion-icon src="assets/icon/weather.svg"></ion-icon>
+</ion-tab-button>
+</ion-tab-bar>
+<!--
+<ion-footer-bar>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+     <ion-tab-button tab="account">
+         <ion-icon name="person"></ion-icon>
+         <ion-label>Account</ion-label>
+     </ion-tab-button>
+     <ion-tab-button tab="account">
+       <ion-icon name="person"></ion-icon>
+       <ion-label>Account</ion-label>
+   </ion-tab-button>
+   <ion-tab-button tab="account">
+     <ion-icon name="person"></ion-icon>
+     <ion-label>Account</ion-label>
+ </ion-tab-button>
+ <ion-tab-button tab="account">
+   <ion-icon name="person"></ion-icon>
+   <ion-label>Account</ion-label>
+</ion-tab-button>
+<ion-tab-button tab="account">
+ <ion-icon name="person"></ion-icon>
+ <ion-label>Account</ion-label>
+</ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+</ion-footer-bar>-->

@@ -32,7 +32,7 @@ export class AppComponent {
   private login(){
     let authenticated = this.authSrvice.loadToken();
     if(authenticated==true){
-      this.router.navigateByUrl("menu");
+      this.router.navigateByUrl("/menu/home");
     }else{
     this.router.navigateByUrl('/login');
     }

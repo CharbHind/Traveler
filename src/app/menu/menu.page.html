@@ -12,6 +12,16 @@
         <ion-button><ion-icon slot="start" name="add"></ion-icon>add suggestion</ion-button>
     </div>
 
+
+    <ion-menu-toggle *ngFor="let m of menus" >
+      <ion-item (click)="onMenuItem(m)">
+        <ion-icon src="{{m.icon}}" slot="start"></ion-icon>
+        <ion-title> {{m.title}} </ion-title>
+      </ion-item>
+
+    </ion-menu-toggle>
+
+<!--
     <ion-list class="menu-items" lines="none">
         <ion-item>
           <ion-icon name="pie-chart-outline"></ion-icon>
@@ -39,7 +49,7 @@
         </ion-item>
     </ion-list>
 
-
+  -->
 
   </ion-content>
 </ion-menu>

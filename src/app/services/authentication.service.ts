@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  logout() {
+    localStorage.removeItem('myToken');
+  }
   public authenticated:boolean;
   public token:string;
   constructor() { 
