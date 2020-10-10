@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Place} from './place.model';
 import { Router} from '@angular/router';
-
+import { AngularFireDatabase } from '@angular/fire/database';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -50,10 +50,17 @@ export class HomePage  {
     slidesPerView: 2.5,
   };
   
-  constructor(private router:Router) {}
+  constructor(private router:Router,public afDB: AngularFireDatabase
+    ) {}
   music()
   {
     this.router.navigateByUrl('place');
 
+  }
+
+  add() {
+    this.afDB.list('User/').push({
+      pseudo: 'drissas'
+    });
   }
 }

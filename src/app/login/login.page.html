@@ -7,13 +7,13 @@
     </div>
 
 
-  <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+  <form #f="ngForm" (ngSubmit)="onLogin()">
     <ion-item>
-        <ion-input type="text" name="username" ngModel placeholder="User Name"></ion-input>
+        <ion-input type="text" name="username"  placeholder="User Name" [(ngModel)]="dataUser.email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input type="password" name="password" ngModel placeholder="Password"></ion-input>
+      <ion-input type="password" name="password"  placeholder="Password" [(ngModel)]="dataUser.password"></ion-input>
     </ion-item>
 
     <ion-item lines="none">
